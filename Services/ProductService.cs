@@ -1,0 +1,30 @@
+using SimpleStore.Models;
+using SimpleStore.Repositories;
+
+namespace SimpleStore.Services;
+
+public class ProductService : IProductService
+{
+    private readonly IProductRepository _repo;
+    public ProductService (IProductRepository repo)
+    {
+        _repo = repo;
+    }
+    public List<Product> GetProducts()
+    {
+        return _repo.GetAll();
+    }
+    public void AddProduct(Product product)
+    {
+        if(product.Price <= 0)
+        {
+            throw new Exception ("price must be positive");
+        }
+        _repo.Add(product);
+    }
+
+    public int getTotalProducts()
+    {
+        return _repo.GetTotalCount();
+    }
+} 
