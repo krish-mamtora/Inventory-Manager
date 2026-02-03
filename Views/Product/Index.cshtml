@@ -1,0 +1,9 @@
+@model List<Product>
+
+<h1>Total Products Available : @ViewBag.Total</h1>
+
+<div>
+    @foreach (var product in Model){
+        <p name="_ProductCard" model="p" />
+    }
+</div>
