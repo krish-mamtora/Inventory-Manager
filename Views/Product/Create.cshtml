@@ -1,6 +1,7 @@
-@model Product
+@model SimpleStore.Models.Product
 
-<form asp-action="Create" method="post">
+<h2>Add Product : </h2>
+<form asp-action="Create" asp-controller="Product" method="post">
 
     <input asp-for="Name" placeholder="Name">
 

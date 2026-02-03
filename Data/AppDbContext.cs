@@ -1,9 +1,9 @@
 using SimpleStore.Models;
-
+using Microsoft.EntityFrameworkCore;
 namespace SimpleStore.Data;
 
 public class AppDbContext : DbContext{
-    public AppDbContext(DbContextOptions<AppDbContext> options) : base(option)
+    public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
     {
         
     }

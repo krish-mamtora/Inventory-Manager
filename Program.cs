@@ -1,7 +1,20 @@
+using Microsoft.EntityFrameworkCore;
+using SimpleStore.Data;
+using SimpleStore.Repositories;
+using SimpleStore.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<AppDbContext>(
+    options =>options.UseSqlServer(builder.Configuration.GetConnectionString("Defaultconnection"))
+);
+builder.Services.AddScoped<IProductRepository , ProductRepository>();
+builder.Services.AddScoped<IProductService , ProductService>();
+
 
 var app = builder.Build();
 
