@@ -1,19 +1,54 @@
 @model SimpleStore.Models.Product
 
-<h2>Add Product : </h2>
-<form asp-action="Create" asp-controller="Product" method="post">
+@{
+    ViewData["Title"] = "Create Product";
+}
 
-    <input asp-for="Name" placeholder="Name">
+<h1>Create Product</h1>
 
-<input asp-for="Price" placeholder="Price">
-<input asp-for="Quantity" placeholder="Quantity">
+<hr />
+<div>
+    <div style="border: 1px solid black; background-color : lightblue;">
+        <form asp-action="Create" style="display: flex; align-items: center; width : 400px">
+            
+            <div>
+                  <span>Product Name : </span>
+                <input asp-for="Name" required placeholder="Name" />
+            </div>
 
-    <select name="" id="" asp-for="Category">
-        <option>Electronic</option>
-          <option>Office</option>
-          <option>Music</option>
-          <option>Games</option>
-    </select>
+            <div>
+                <span>Category : </span>
+                <select asp-for="Category" >
+                    <option value="Electronics">Electronics</option>
+                    <option value="Clothing">Clothing</option>
+                    <option value="Books">Books</option>
+                    <option value="Home Goods">Home Goods</option>
+                    <option value="Toys">Toys</option>
+                </select>
+            </div>
 
-    <button type="submit">Save</button>
-</form>
+            <div>
+                <span>Price : </span>
+                <input asp-for="Price" required placeholder="Priece" />
+            </div>
+
+            <div>
+                <span>Quantity : </span>
+                <input asp-for="Quantity" required placeholder="Quantity"/>
+            </div>
+
+            <div>
+                <input type="submit" value="Create" style="color : white ; background-color : blue"  />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+

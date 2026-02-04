@@ -1,6 +1,10 @@
-@model Product 
-<div>
-    <h5>@Model.Name</h5>
-    <h5>@Model.Price</h5>
+@{
+    ViewData["Title"] = "Product Page";
+}
+@model SimpleStore.Models.Product 
+<div style="border: 1px solid black;">
+    <h5>Name : @Model.Name</h5>
+    <h5>Pricd : @Model.Price</h5>
     <h5>Quantity : @Model.Quantity</h5>
+    <h5>Category : @Model.Category</h5>
 </div>

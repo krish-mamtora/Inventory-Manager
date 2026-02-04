@@ -1,9 +1,17 @@
-@model List<Product>
+@model List<SimpleStore.Models.Product>
 
 <h1>Total Products Available : @ViewBag.Total</h1>
 
+@if(!Model.Any()){
+    <p>No Products Found</p>
+}
+else{
 <div>
+    <div style="gap: 3px; width : 200px">
     @foreach (var product in Model){
-        <p name="_ProductCard" model="p" />
+        <partial name="_ProductCard" model="product" />
     }
+    </div>
 </div>
+
+}
