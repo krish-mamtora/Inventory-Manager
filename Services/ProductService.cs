@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Http.HttpResults;
 using SimpleStore.Models;
 using SimpleStore.Repositories;
 
@@ -26,5 +27,24 @@ public class ProductService : IProductService
     public int getTotalProducts()
     {
         return _repo.GetTotalCount();
+    }
+    public void DeleteProduct(int id)
+    {
+        var product = _repo.GetById(id);
+        if (product == null)
+        {
+            throw new InvalidOperationException($"Product with id {id} not found.");
+            // return NotFound();
+        }
+        _repo.DeleteProduct(id);
+    }   
+    public Product? GetById(int id)
+    {
+        var product = _repo.GetById(id);
+        if(product==null)
+        {
+            throw new InvalidOperationException($"Product with id {id} not found.");
+        }
+        return product;
     }
 } 

@@ -1,0 +1,35 @@
+@model Product 
+@{ 
+   ViewBag.Title = $"Edit {Model.Name}"; 
+} 
+<h1>Edit @Model.Name</h1>  
+
+<form asp-action="Edit" method="post"> 
+            <div>
+            <span>Product Name : </span>
+                <input asp-for="Name" required placeholder="Name" />
+            </div>
+            <div>
+                <span>Category : </span>
+                <select asp-for="Category" >
+                    <option value="Electronics">Electronics</option>
+                    <option value="Clothing">Clothing</option>
+                    <option value="Books">Books</option>
+                    <option value="Home Goods">Home Goods</option>
+                    <option value="Toys">Toys</option>
+                </select>
+            </div>
+
+            <div>
+                <span>Price : </span>
+                <input asp-for="Price" required placeholder="Priece" />
+            </div>
+
+            <div>
+                <span>Quantity : </span>
+                <input asp-for="Quantity" required placeholder="Quantity"/>
+            </div>
+   <div> 
+      <input type = "submit" value = "Save" /> 
+   </div> 
+</form>

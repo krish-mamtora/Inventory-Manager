@@ -7,4 +7,8 @@
     <h5>Pricd : @Model.Price</h5>
     <h5>Quantity : @Model.Quantity</h5>
     <h5>Category : @Model.Category</h5>
+    @* <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a>  *@
+    <a asp-controller = "Home" asp-action = "Edit" 
+               asp-routeid = "@Model.Id">Edit</a> 
+
 </div>

@@ -1,0 +1,14 @@
+@page "{id:int}"
+@model SimpleStore.Models.Product 
+<h2>Product Details</h2>
+
+@if (Model != null)
+{
+    <p><strong>ID:</strong> @Model.Id</p>
+    <p><strong>Name:</strong> @Model.Name</p>
+    <p><strong>Price:</strong> @Model.Price</p>
+}
+else
+{
+    <p>Product not found.</p>
+}

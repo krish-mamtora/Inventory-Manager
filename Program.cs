@@ -2,13 +2,11 @@ using Microsoft.EntityFrameworkCore;
 using SimpleStore.Data;
 using SimpleStore.Repositories;
 using SimpleStore.Services;
-
+using SimpleStore.Middleware;
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<AppDbContext>(
     options =>options.UseSqlServer(builder.Configuration.GetConnectionString("Defaultconnection"))
 );
@@ -26,7 +24,9 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-app.UseHttpsRedirection();
+app.UseMiddleware<RequestLoggerMiddleware>();
+
+// app.UseHttpsRedirection();
 app.UseRouting();
 
 app.UseAuthorization();
