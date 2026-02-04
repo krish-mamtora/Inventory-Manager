@@ -25,6 +25,7 @@ public class ProductController : Controller
         return View();
     }
     [HttpPost]
+    [ValidateAntiForgeryToken]
     public IActionResult Create(Product product)
     {
         Console.WriteLine("Post Creating ..");
