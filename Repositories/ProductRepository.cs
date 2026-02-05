@@ -40,10 +40,10 @@ class ProductRepository : IProductRepository
     public void DeleteProduct(int id)
     {
         var product = _context.Products.Find(id);
-        if (product != null)
+        if (product!=null)
         {
-            _context.Products.Remove(product);
-            _context.SaveChanges();
+              _context.Products.Remove(product);
+                 _context.SaveChanges();
         }
         return;
     }

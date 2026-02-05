@@ -53,7 +53,8 @@ public class ProductController : Controller
         if (id <= 0)
         {
             return BadRequest("Please enter a valid Id.");
-        }  Console.WriteLine("reached");
+        }
+        Console.WriteLine("reached");
         var product = _service.GetById(id);
         if (product == null)
         {
@@ -63,12 +64,14 @@ public class ProductController : Controller
     }
 
     [HttpDelete("/Product/{id:int}")]
-    [ValidateAntiForgeryToken]
-
     public IActionResult DeleteProduct(int id)
     {
+         Console.WriteLine("reached controller" + id);
+          if ( id <= 0)
+            {
+                return BadRequest("Please enter a valid Id.");
+            }
          _service.DeleteProduct(id);
             return Ok();
     }
-
 }

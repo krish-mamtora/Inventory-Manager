@@ -11,4 +11,8 @@
     <a asp-controller = "Home" asp-action = "Edit" 
                asp-routeid = "@Model.Id">Edit</a> 
 
+    <form action="/Product/@Model.Id" method="post">
+            <button type="submit" class="btn btn-danger">Delete Product</button>
+    </form>
+    
 </div>

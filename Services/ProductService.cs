@@ -34,9 +34,9 @@ public class ProductService : IProductService
         if (product == null)
         {
             throw new InvalidOperationException($"Product with id {id} not found.");
-            // return NotFound();
         }
         _repo.DeleteProduct(id);
+        return ;
     }   
     public Product? GetById(int id)
     {

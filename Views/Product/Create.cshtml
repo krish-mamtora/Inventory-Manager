@@ -14,8 +14,9 @@
     <div style="border: 1px solid black; background-color : lightblue;">
             
             <div>
-                  <span>Product Name : </span>
-                <input asp-for="Name" required placeholder="Name" />
+                <span>Product Name : </span>
+                @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
             </div>
 
             <div>
@@ -30,13 +31,16 @@
             </div>
 
             <div>
-                <span>Price : </span>
-                <input asp-for="Price" required placeholder="Priece" />
+                 <span>Price : </span>
+                @Html.TextBoxFor(m => m.Price, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Price, "", new { @class = "text-danger" })
+               
             </div>
 
             <div>
                 <span>Quantity : </span>
-                <input asp-for="Quantity" required placeholder="Quantity"/>
+                   @Html.TextBoxFor(m => m.Quantity, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Quantity, "", new { @class = "text-danger" })
             </div>
 
             <div>
@@ -52,5 +56,4 @@
 }
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
-
+} 

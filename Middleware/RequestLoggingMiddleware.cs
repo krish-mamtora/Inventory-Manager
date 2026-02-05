@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Http;
 public class RequestLoggerMiddleware
 {
     private readonly RequestDelegate _next;
+
     public RequestLoggerMiddleware(RequestDelegate next)
     {
         _next = next;

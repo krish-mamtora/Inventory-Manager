@@ -3,7 +3,7 @@ namespace SimpleStore.Models;
 public class Product
 {
     public int Id {get ; set;}
-[Required(ErrorMessage = "Product name is required.")]
+    [Required(ErrorMessage = "Product name is required.")]
     [StringLength(100, ErrorMessage = "Name cannot exceed 100 characters.")]
     public string Name { get; set; } = null!;
     public string Category {get ; set;} = null!;
